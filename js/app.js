@@ -1,10 +1,10 @@
-﻿/*
+/*
  * Three.js e imagens ainda não foram incluídos: o ZIP citado no pedido não
  * estava disponível no repositório. Adicione o arquivo oficial em vendor/.
  */
 // ===== CONFIGURAÇÃO (ajuste aqui) =====
 var WHATS = "5512997083768";
-var SERVICOS = ["Corte de cabelo","Corte em degradê","Corte com navalha","Corte com tesoura","Corte militar","Corte infantil","Corte personalizado","Barba","Barba com navalha","Barbear com toalha quente","Cabelo e barba","Coloração","Depilação com cera","Raspar a cabeça"];
+var SERVICOS = ["Corte de cabelo","Corte em degradê","Corte com navalha","Corte com tesoura","Corte militar","Corte infantil","Corte personalizado","Barba","Barba com navalha","Barbear com toalha quente","Cabelo e barba","Depilação com cera","Raspar a cabeça"];
 var PROFISSIONAIS = ["Qualquer profissional","Rodrigo"];
 // 0=dom ... 6=sáb ; [abre, fecha] em horas. null = fechado
 var HORARIO = {0:null,1:null,2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[9,18]};
@@ -135,4 +135,22 @@ pl.position.x=mx*10;R.render(S,cam);if(!rm)raf=requestAnimationFrame(tick)}
 new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(tick)}).observe(cv);
 raf=requestAnimationFrame(tick);
 }catch(e){cv.style.display="none"}
+})();
+// Autoplay apenas na primeira visita; nas proximas, aguarda o play manual.
+(function(){
+  var button=document.getElementById("music-toggle");
+  if(!button)return;
+  var audio=new Audio("change-in-the-house-of-flies.mp3");
+  audio.loop=true;audio.volume=.35;audio.preload="auto";
+  var playing=false;
+  function sync(){playing=true;button.innerHTML="&#10074;&#10074;";button.setAttribute("aria-label","Pausar musica");button.setAttribute("aria-pressed","true")}
+  function start(){audio.play().then(sync).catch(function(){button.innerHTML="&#9654;";button.setAttribute("aria-label","Tocar musica")})}
+  var firstVisit=false;
+  try{firstVisit=!localStorage.getItem("rck-music-visited");localStorage.setItem("rck-music-visited","1")}catch(e){firstVisit=true}
+  if(firstVisit)start();
+  button.addEventListener("click",function(){
+    if(!audio.paused){audio.pause();playing=false;button.innerHTML="&#9654;";button.setAttribute("aria-label","Tocar musica");button.setAttribute("aria-pressed","false");return}
+    start();
+  });
+  audio.addEventListener("ended",function(){playing=false;button.innerHTML="&#9654;";button.setAttribute("aria-label","Tocar musica");button.setAttribute("aria-pressed","false")});
 })();

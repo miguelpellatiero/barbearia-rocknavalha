@@ -115,3 +115,30 @@ input::placeholder{color:#8c8c8c}
 .skip{position:absolute;left:12px;top:-60px;z-index:10;background:#fff;color:#000;padding:10px 16px;font-weight:700;text-decoration:none}
 .skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
 main:focus{outline:none}
+/* Acoes principais do topo */
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-actions .btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;text-align:center;transition:transform .18s,background .18s,color .18s,border-color .18s}
+.hero-actions .btn:hover{transform:translateY(-2px);background:#fff;color:#000;border-color:#fff}
+.hero-actions .btn.ghost:hover{background:#fff;color:#000}
+.hero-actions .btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-width:480px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}}
+
+.music-toggle{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;background:#111;color:#fff;border:1px solid #888;border-radius:999px;padding:12px 18px;font:600 14px 'Work Sans',sans-serif;cursor:pointer;box-shadow:0 4px 14px #0008}
+.music-toggle:hover,.music-toggle[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
+.music-toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+
+/* Controles translucidos e arame farpado */
+.btn{border:1px solid rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.28),inset 0 1px 1px rgba(255,255,255,.22)}
+.btn.ghost{border:2px solid rgba(255,255,255,.32);color:#fff;background:rgba(255,255,255,.05)}
+.chip,.slot{color:#fff;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.22),inset 0 1px 1px rgba(255,255,255,.18)}
+.chip[aria-pressed=true],.slot[aria-pressed=true]{color:#fff;background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.7);box-shadow:0 0 18px rgba(255,255,255,.16)}
+#enviar{color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.28),inset 0 1px 1px rgba(255,255,255,.22)}
+.btn:hover,.chip:hover,.slot:hover:not(:disabled),#enviar:hover{color:#fff;background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);transform:none}
+.hero-actions .btn:hover{transform:none}
+.music-toggle{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;width:46px;height:46px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(0,0,0,.34),inset 0 1px 1px rgba(255,255,255,.25);font-size:17px}
+.music-toggle:hover,.music-toggle[aria-pressed=true]{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.55);transform:none}
+.music-toggle:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5}
+.barbed-wire{display:block;position:relative;width:100%;height:64px;overflow:hidden;opacity:1;pointer-events:none;background:#000}
+.barbed-wire svg{display:block;width:100%;height:100%;filter:drop-shadow(0 2px 2px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(255,255,255,.25))}
