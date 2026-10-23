@@ -140,7 +140,7 @@ raf=requestAnimationFrame(tick);
 (function(){
   var button=document.getElementById("music-toggle");
   if(!button)return;
-  var audio=new Audio("change-in-the-house-of-flies.mp3");
+  var audio=new Audio("assets/audio/change-in-the-house-of-flies.mp3");
   audio.loop=true;audio.volume=.35;audio.preload="auto";
   var playing=false;
   function sync(){playing=true;button.innerHTML="&#10074;&#10074;";button.setAttribute("aria-label","Pausar musica");button.setAttribute("aria-pressed","true")}

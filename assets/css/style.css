@@ -17,6 +17,7 @@ header nav a{margin-left:18px;text-decoration:none;font-size:15px}
 .hero{padding:40px 0 72px;border-bottom:6px double var(--brass)}
 .logo{font-family:Cinzel,'Trajan Pro',Georgia,serif;font-weight:700;text-transform:uppercase;line-height:.9;margin:0 0 8px;max-width:760px}
 .logo .sm{font-size:clamp(12px,2.4vw,18px);letter-spacing:.5em;margin-left:.3em}
+.logo .sm,.logo .bar{display:block}
 .logo .big{display:block;font-size:clamp(56px,16vw,168px);letter-spacing:.02em}
 .logo .o{position:relative;display:inline-block}
 .logo .o::after{content:"\2726";position:absolute;inset:0;display:grid;place-items:center;font-size:.34em;color:var(--steel)}
@@ -122,6 +123,7 @@ main:focus{outline:none}
 .hero-actions .btn.ghost:hover{background:#fff;color:#000}
 .hero-actions .btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media(max-width:480px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}}
+.booking-note{font-size:14px;margin:12px 0 0}
 
 .music-toggle{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;background:#111;color:#fff;border:1px solid #888;border-radius:999px;padding:12px 18px;font:600 14px 'Work Sans',sans-serif;cursor:pointer;box-shadow:0 4px 14px #0008}
 .music-toggle:hover,.music-toggle[aria-pressed=true]{background:#fff;color:#000;border-color:#fff}
